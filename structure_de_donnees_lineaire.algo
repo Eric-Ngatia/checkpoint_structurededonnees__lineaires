@@ -1,0 +1,50 @@
+ALGORITHM check if any two intervals overlap
+VAR
+   inter: false
+   mat : ARRAY_OF INTEGER[50][2];
+   N:INTEGER
+BEGIN
+   FOR i FROM 0 TO N-1  DO
+      FOR j FROM i+1 TO N-1  DO
+         IF (mat[i],[0]>mat[j][0]) THEN
+            inter=true
+         END_IF
+
+         IF (mat[i][1>mat[j][1]]) THEN
+            inter=true
+         END_IF
+
+         IF (mat[i][1<mat[i][0]]) THEN
+            inter
+         END_IF
+      END_FOR
+   END_FOR
+END
+
+
+
+ALGORITHM problem 1
+
+ // Solution 1
+
+VAR
+
+   sum = 0;
+   tab1 : ARRAY_OF INTEGER;
+   tab2 : ARRAY_OF INTEGER; 
+   tab3 : ARRAY_OF INTEGER;
+   i:INTEGER;
+   j:INTEGER;
+
+BEGIN
+
+   Read(tab1)
+   Read(tab2)
+      FOR i FROM 0 TO tab1.length STEP 1  DO
+         FOR j FROM i+1 TO tab2.length-1 STEP 1 DO
+            IF (tab1[i]<>tab2[j]) THEN
+               Write(tab2[j]:= tab3)
+            END_IF
+         END_FOR
+      END_FOR
+END
