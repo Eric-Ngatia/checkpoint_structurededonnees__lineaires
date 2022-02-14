@@ -46,5 +46,169 @@ BEGIN
                Write(tab2[j]:= tab3)
             END_IF
          END_FOR
+         sum
       END_FOR
 END
+
+
+ // Solution 2
+
+
+VAR
+   htab1 : HASH_TABLE<CHAR,INTEGER>;
+   htab2 : HASH_TABLE<CHAR,INTEGER>;
+   htab : HASH_TABLE<CHAR,INTEGER>;
+
+   str : STRING[50];
+   i,j,count : INTEGER;
+   int:INTEGER;
+   ch: CHAR;
+BEGIN
+   Read(htab1)
+   htab1 : HASH_TABLE<CHAR,INTEGER>;
+   htab.insert(0,3);
+   htab.insert(1,1);
+   htab.insert(2,7);
+   htab.insert(3,9);
+   Write(htab1);
+
+   Read(htab2)
+   htab2 : HASH_TABLE<CHAR,INTEGER>;
+   htab.insert(0,2);
+   htab.insert(1,4);
+   htab.insert(2,1);
+   htab.insert(3,9);
+   htab.insert(4,3);
+   Write(htab2);
+
+   Read(str)
+
+   FOR i FROM 0 TO str.length-1 STEP 1  DO
+      FOR j FROM 0 TO str.length-1 STEP 1  DO
+         IF (htab1.lookup(str[i]) = TRUE) THEN
+            count := htab1.get(str[i]);
+            htab1.insert(str[i],count++);
+         ELSE
+            htab.insert(str[i],1);
+
+            IF (htab2.lookup(str[j])=TRUE) THEN
+               count := htab2.get(str[i]);
+               htab2.insert(str[i],count++);
+            ELSE
+               htab.insert(str[j],1);
+            END_IF
+
+         END_IF
+      END_FOR
+   END_FOR
+   
+   FOR i FROM 0 TO str.length-1 STEP 1  DO
+      FOR j FROM 0 TO str.leength-1 STEP 1  DO
+         IF (htab.get(str[i]) = 1) THEN
+            ch := str[i];
+            IF (htab.get(str[j]) = 1) THEN
+               ch :=str[j]
+            END_IF
+         END_IF
+      END_FOR
+   END_FOR
+   sum
+
+END                
+
+
+
+
+
+
+ALGORITHM problem 2
+
+ // Solution 1
+
+VAR
+
+   sum = 0;
+   tab1 : ARRAY_OF INTEGER;
+   tab2 : ARRAY_OF INTEGER; 
+   tab3 : ARRAY_OF INTEGER;
+   i:INTEGER;
+   j:INTEGER;
+
+BEGIN
+
+   Read(tab1)
+   Read(tab2)
+      FOR i FROM 0 TO tab1.length STEP 1  DO
+         FOR j FROM i+1 TO tab2.length-1 STEP 1 DO
+            IF (tab1[i] == tab2[j]) THEN
+               Write(tab2[j]:= tab3)
+            END_IF
+         END_FOR
+         sum
+      END_FOR
+END
+
+
+ // Solution 2
+
+
+VAR
+   htab1 : HASH_TABLE<INTEGER,INTEGER>;
+   htab2 : HASH_TABLE<INTEGER,INTEGER>;
+   htab : HASH_TABLE<INTEGER,INTEGER>;
+
+   str : STRING[50];
+   i,j,count : INTEGER;
+   int:INTEGER;
+BEGIN
+   Read(htab1)
+   htab1 : HASH_TABLE<INTEGER,INTEGER>;
+   htab.insert(0,3);
+   htab.insert(1,1);
+   htab.insert(2,7);
+   htab.insert(3,9);
+   Write(htab1);
+
+   Read(htab2)
+   htab2 : HASH_TABLE<INTEGER,INTEGER>;
+   htab.insert(0,2);
+   htab.insert(1,4);
+   htab.insert(2,1);
+   htab.insert(3,9);
+   htab.insert(4,3);
+   Write(htab2);
+
+   Read(str)
+
+   FOR i FROM 0 TO str.length-1 STEP 1  DO
+      FOR j FROM 0 TO str.length-1 STEP 1  DO
+         IF (htab1.lookup(str[i]) = TRUE) THEN
+            count := htab1.get(str[i]);
+            htab1.insert(str[i],count++);
+         ELSE
+            htab.insert(str[i],1);
+
+            IF (htab2.lookup(str[j])=TRUE) THEN
+               count := htab2.get(str[i]);
+               htab2.insert(str[i],count++);
+            ELSE
+               htab.insert(str[j],1);
+            END_IF
+
+         END_IF
+      END_FOR
+   END_FOR
+   
+   FOR i FROM 0 TO str.length-1 STEP 1  DO
+      FOR j FROM 0 TO str.leength-1 STEP 1  DO
+         IF (htab.get(str[i]) = 1) THEN
+            int := str[i];
+            IF (htab.get(str[j]) = 1) THEN
+               int :=str[j]
+            END_IF
+         END_IF
+      END_FOR
+   END_FOR
+   sum
+
+END                
