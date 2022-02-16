@@ -43,11 +43,21 @@ BEGIN
       FOR i FROM 0 TO tab1.length STEP 1  DO
          FOR j FROM i+1 TO tab2.length-1 STEP 1 DO
             IF (tab1[i]<>tab2[j]) THEN
-               Write(tab2[j]:= tab3)
+               sum=sum+tab1[i]
+               
             END_IF
          END_FOR
-         sum
+
       END_FOR
+
+      FOR j FROM 0 TO tab2.length STEP 1 DO
+         FOR i FROM i+1 TO tab1.lenght STEP 1 DO
+            IF (tab2[j]<>tab[i]) THEN
+               sum=sum+tab1[j]
+            END_IF
+         END_FOR
+      END_FOR
+   write(sum)
 END
 
 
@@ -64,29 +74,14 @@ VAR
    int:INTEGER;
    ch: CHAR;
 BEGIN
-   Read(htab1)
-   htab1 : HASH_TABLE<CHAR,INTEGER>;
-   htab.insert(0,3);
-   htab.insert(1,1);
-   htab.insert(2,7);
-   htab.insert(3,9);
-   Write(htab1);
-
-   Read(htab2)
-   htab2 : HASH_TABLE<CHAR,INTEGER>;
-   htab.insert(0,2);
-   htab.insert(1,4);
-   htab.insert(2,1);
-   htab.insert(3,9);
-   htab.insert(4,3);
-   Write(htab2);
-
+   Read(htab1);
+   Read(htab2);
    Read(str)
 
-   FOR i FROM 0 TO str.length-1 STEP 1  DO
-      FOR j FROM 0 TO str.length-1 STEP 1  DO
-         IF (htab1.lookup(str[i]) = TRUE) THEN
-            count := htab1.get(str[i]);
+   FOR i FROM 0 TO htab1.length-1 STEP 1  DO 
+      FOR j FROM i+1 TO htab2.length-1 STEP 1  DO 
+         IF (htab1[i]<>htab2[j]) THEN 
+            count=count+htba1[i];    
             htab1.insert(str[i],count++);
          ELSE
             htab.insert(str[i],1);
@@ -94,25 +89,21 @@ BEGIN
             IF (htab2.lookup(str[j])=TRUE) THEN
                count := htab2.get(str[i]);
                htab2.insert(str[i],count++);
-            ELSE
-               htab.insert(str[j],1);
-            END_IF
 
+            END_IF
+            
          END_IF
       END_FOR
    END_FOR
    
-   FOR i FROM 0 TO str.length-1 STEP 1  DO
-      FOR j FROM 0 TO str.leength-1 STEP 1  DO
-         IF (htab.get(str[i]) = 1) THEN
-            ch := str[i];
-            IF (htab.get(str[j]) = 1) THEN
-               ch :=str[j]
-            END_IF
+   FOR j FROM 0 TO htab2.length-1 STEP 1  DO  
+      FOR i FROM j+1 TO htab1.length-1 STEP 1  DO  
+         IF (htab2[ij<>htab1[i]) THEN 
+            count=count+htba1[i]
          END_IF
       END_FOR
    END_FOR
-   sum
+   write(count)
 
 END                
 
@@ -161,24 +152,7 @@ VAR
    i,j,count : INTEGER;
    int:INTEGER;
 BEGIN
-   Read(htab1)
-   htab1 : HASH_TABLE<INTEGER,INTEGER>;
-   htab.insert(0,3);
-   htab.insert(1,1);
-   htab.insert(2,7);
-   htab.insert(3,9);
-   Write(htab1);
-
-   Read(htab2)
-   htab2 : HASH_TABLE<INTEGER,INTEGER>;
-   htab.insert(0,2);
-   htab.insert(1,4);
-   htab.insert(2,1);
-   htab.insert(3,9);
-   htab.insert(4,3);
-   Write(htab2);
-
-   Read(str)
+   Read(str);
 
    FOR i FROM 0 TO str.length-1 STEP 1  DO
       FOR j FROM 0 TO str.length-1 STEP 1  DO
